@@ -38,12 +38,10 @@ const colors = {
     },
 };
 // На самом деле мог и без циклов сделать, если что переделаю
-for (let key in colors) {
-    for (let i in colors[key]) {
-        if (i === 'red') console.log(colors[key][i])
-        else if (i === 'blue') console.log(colors[key][i])
-    }
-}
+
+console.log(colors["ru pum pu ru rum"].red)
+console.log(colors["ru pum pu ru rum"].blue)
+
 
 // task 5
 let salaries = {
@@ -58,21 +56,27 @@ let numHum = 0;
 for (let sum in salaries) {
     averageSal  += salaries[sum];
     numHum++;
-
 }
 averageSal /=  numHum;
 console.log(averageSal)
 
+
 // task 6
+// Registration
+// const loginReg = prompt('Введите ваш ник для регистрации');
+// const passwordReg = prompt('Введите ваш пароль для регистрации');
+// login
+// const loginLog = prompt('Введите ваш ник для входа в аккаунт');
+// const passwordLog = prompt('Введите ваш пароль для входа в аккаунт');
 
 // const registr = {
-//     username: prompt('Введите ваш ник для регистрации'),
-//     password: prompt('Введите ваш пароль для регистрации')
+//     username: loginReg,
+//     password: passwordReg
 // }
 
 // const login = {
-//     username: prompt('Введите ваш ник для входа в аккаунт'),
-//     password: prompt('Введите ваш пароль для входа в аккаунт')
+//     username: loginLog,
+//     password: passwordLog
 // }
 
 // if ((login.username === registr.username) && (login.password === registr.password)) console.log(`Добро пожаловать, ${login.username}!`)
@@ -141,11 +145,19 @@ const animals = {
     },
 
 }
-
-function findBird(object) {
-    if (object.bird === undefined) console.log("Птички не существует в нашем объекте")
-    else if (object.bird.name === undefined) console.log('У птички нет имени')
-    else console.log(object.bird.name)
+const defaults = {
+    bird: {
+        name: 'Linki',
+        age: 1,
+    }
+}
+const animalWorld = {
+    ...defaults,
+    ...animals,
 }
 
-findBird(animals);
+function findBird(object) {
+    console.log(object.bird.name)
+}
+
+findBird(animalWorld);
