@@ -127,3 +127,25 @@ function isEqual (object1, object2) {
     }
 }
 console.log(isEqual(student1,student2))
+
+// task 3
+
+const animals = {
+    cat: {
+        name: 'Енчик',
+        age: 3,
+    },
+    dog: {
+        name: 'Орео',
+        age: 2,
+    },
+
+}
+
+function findBird(object) {
+    if (object.bird === undefined) console.log("Птички не существует в нашем объекте")
+    else if (object.bird.name === undefined) console.log('У птички нет имени')
+    else console.log(object.bird.name)
+}
+
+findBird(animals);
