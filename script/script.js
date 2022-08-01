@@ -84,16 +84,19 @@ console.log(averageSal)
 
 let ourScore = prompt("Введите количество голов обеих команд в формате n:m, счет голов не может быть больше 9");
 
-
+//  только если a:b ввести не робит программа , а так все вроде учел.
 function filterScore(score) {
-    score = score.split(":");
-    let teamFirst = +score[0];
-    let teamSecond = +score[1];
-    if ((teamFirst > 9 || teamSecond > 9) || (teamFirst < 0 || teamSecond < 0)) console.log("Введите корректный счет")
+    if ((score.length > 3) || (score[1] !== ':')) console.log('вы ввели какую-то херню')
     else {
-        if (teamFirst === 9) console.log(`Первая команда победила со счетом ${teamFirst} - ${teamSecond}`)
-        else if (teamSecond === 9) console.log(`Вторая команда победила со счетом ${teamSecond} - ${teamFirst}`)
-        else console.log(`Первая команда забила - ${teamFirst} голов, вторая команда забила - ${teamSecond} голов`)
+        score = score.split(":");
+        let teamFirst = +score[0];
+        let teamSecond = +score[1];
+        if ((teamFirst > 9 || teamSecond > 9) || (teamFirst < 0 || teamSecond < 0)) console.log("Введите корректный счет")
+        else {
+            if (teamFirst === 9) console.log(`Первая команда победила со счетом ${teamFirst} - ${teamSecond}`)
+            else if (teamSecond === 9) console.log(`Вторая команда победила со счетом ${teamSecond} - ${teamFirst}`)
+            else console.log(`Первая команда забила - ${teamFirst} голов, вторая команда забила - ${teamSecond} голов`)
+        }
     }
     
 }
