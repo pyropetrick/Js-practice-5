@@ -85,26 +85,19 @@ console.log(averageSal)
 // ----------advanced lvl--------------
 
 // task 1
+const SCORE_FROM_BACK = '2:5';
 
-// let ourScore = prompt("Введите количество голов обеих команд в формате n:m, счет голов не может быть больше 9");
+const SCORE = {
+    teamOne: +SCORE_FROM_BACK.split(":")[0],
+    teamTwo: +SCORE_FROM_BACK.split(":")[1],
+}
+console.log(SCORE)
 
-// //  только если a:b ввести не робит программа , а так все вроде учел.
-// function filterScore(score) {
-//     if ((score.length > 3) || (score[1] !== ':')) console.log('вы ввели какую-то херню')
-//     else {
-//         score = score.split(":");
-//         let teamFirst = +score[0];
-//         let teamSecond = +score[1];
-//         if ((teamFirst > 9 || teamSecond > 9) || (teamFirst < 0 || teamSecond < 0)) console.log("Введите корректный счет")
-//         else {
-//             if (teamFirst === 9) console.log(`Первая команда победила со счетом ${teamFirst} - ${teamSecond}`)
-//             else if (teamSecond === 9) console.log(`Вторая команда победила со счетом ${teamSecond} - ${teamFirst}`)
-//             else console.log(`Первая команда забила - ${teamFirst} голов, вторая команда забила - ${teamSecond} голов`)
-//         }
-//     }
-    
-// }
-// filterScore(ourScore)
+function filterScore(score) {
+    if (score.teamOne > 9 || score.teamTwo > 9 || score.teamOne < 0 || score.teamTwo < 0) console.log("Возможно матч уже завершился давно или кто-то сбился со счета, но уже больше 9 забитых мячей")
+    else console.log(`Ведется неутешительная борьба за первенство, первая команда забила ${score.teamOne} мячей, а вторая команда ${score.teamTwo}`)
+}
+filterScore(SCORE)
 
 // task 2
 
