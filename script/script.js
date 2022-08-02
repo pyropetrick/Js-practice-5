@@ -85,19 +85,33 @@ console.log(averageSal)
 // ----------advanced lvl--------------
 
 // task 1
-const SCORE_FROM_BACK = '2:5';
+const SCORE_BACK = "2:5";
 
-const SCORE = {
-    teamOne: +SCORE_FROM_BACK.split(":")[0],
-    teamTwo: +SCORE_FROM_BACK.split(":")[1],
+const numberObj = {
+    0: "ноль",
+    1: "один",
+    2: "два",
+    3: "три",
+    4: "четыре",
+    5: "пять",
+    6: "шесть",
+    7: "семь",
+    8: "восемь",
+    9: "девять",
 }
-console.log(SCORE)
-
 function filterScore(score) {
-    if (score.teamOne > 9 || score.teamTwo > 9 || score.teamOne < 0 || score.teamTwo < 0) console.log("Возможно матч уже завершился давно или кто-то сбился со счета, но уже больше 9 забитых мячей")
-    else console.log(`Ведется неутешительная борьба за первенство, первая команда забила ${score.teamOne} мячей, а вторая команда ${score.teamTwo}`)
+    let parseScore = score.split(":");
+    const teamScore = {
+        teamOne: +parseScore[0],
+        teamTwo: +parseScore[1]
+    }
+    if (teamScore.teamOne > 9 || teamScore.teamTwo > 9 || teamScore.teamOne < 0 || teamScore.teamTwo < 0) return console.log("Вероятнее всего есть какая-то ошибка в счете или матч уже завершился")
+    else return console.log(`${numberObj[teamScore.teamOne]}:${numberObj[teamScore.teamTwo]}`)
+
 }
-filterScore(SCORE)
+
+
+filterScore(SCORE_BACK)
 
 // task 2
 
