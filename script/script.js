@@ -152,19 +152,8 @@ const animals = {
     },
 
 }
-const defaults = {
-    bird: {
-        name: 'Linki',
-        age: 1,
-    }
-}
-const animalWorld = {
-    ...defaults,
-    ...animals,
-}
 
-function findBird(object) {
-    console.log(object.bird.name)
-}
 
-findBird(animalWorld);
+console.log(animals.bird?.name || 'bird or bird name not exist');
+
+
